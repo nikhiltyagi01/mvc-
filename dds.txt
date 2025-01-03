@@ -1,0 +1,37 @@
+      <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" onclick="showMessage('created messege');" />
+                <script type="text/javascript"
+                        >
+                    const btn = document.querySelector('.btn');
+                    btn.addEventListener('click',showMessage);
+                    function showMessage() {
+
+                    alert('@TempData["SuccessMessage"]');
+                    }
+                </script>
+            </div>
+        </div>
+
+
+
+
+<script>
+    // Add event listener to the Create button
+    document.getElementById('cretebutton').addEventListener('click', function (event) {
+        // Prevent the form from submitting immediately
+        event.preventDefault();
+
+        // Get the SuccessMessage from TempData using Razor syntax
+        var successMessage = @TempData['Suc;
+
+        // Check if the message exists, then show a confirmation pop-up
+        if (successMessage) {
+            alert(successMessage);
+        }
+
+        // Optionally, you can submit the form after the message
+        // You can remove the event.preventDefault() if you want the form to submit immediately after the alert
+        // document.forms[0].submit();
+    });
+</script>
